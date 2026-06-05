@@ -21,10 +21,11 @@ Repository Structure:
 snowflake/
 dbt/
 models/marts/
+tableau/
 
 Analytics and Business Intelligence (BI) Layer:
 The presentation layer consists of a Zomato Global Analytics dashboard powered by data extracts from Dimension and Fact tables. It focuses on Global Culinary trends.
-
+![Dashboard Preview](tableau/Zomato_Global_Analytics_Intelligence_Modern_Data_Stack.png)
 
 Key Visualizations & Features:
 1. Global Restaurant Map: Interactive geographic map plotting restaurant locality density and distributions globally.
