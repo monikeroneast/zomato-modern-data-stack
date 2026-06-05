@@ -1,9 +1,8 @@
 # ❄️ Zomato End-to-End Modern Data Stack Pipeline
 
-![dbt Core](https://shields.io)
-![Snowflake](https://shields.io)
-![AWS S3](https://shields.io)
-![Tableau](https://shields.io)
+**Tech Stack:** `AWS S3` | `Snowflake` | `dbt Core` | `Tableau Desktop`
+
+---
 
 An enterprise-grade analytical data pipeline engineered to ingest semi-structured JSON restaurant source data from AWS S3 into Snowflake, model scalable dimensional marts using dbt Core, and infer dynamic business intelligence insights via Tableau.
 
