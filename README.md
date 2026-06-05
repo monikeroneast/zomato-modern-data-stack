@@ -7,18 +7,16 @@
 
 An enterprise-grade analytical data pipeline engineered to ingest semi-structured JSON restaurant source data from AWS S3 into Snowflake, model scalable dimensional marts using dbt Core, and infer dynamic business intelligence insights via Tableau.
 
-
 Project Objective:
+
 This project reinforces the core Modern Data Stack (MDS) engineering principles. It mimics a real-world production environment by transforming raw, multi-format source data into production-ready business intelligence assets.
+
 
 Tech Stack:
 1. Storage: AWS S3
 2. Data Warehouse: Snowflake
 3. Transformation: dbt (Data Build Tool)
 4. BI Visualization: Tableau (Link: Coming Soon)
-
-
-
 
 
 Data Architecture & Pipeline:
@@ -28,6 +26,7 @@ Data Architecture & Pipeline:
 3. Modeling: Structural formatting applied via Snowflake staging views
 4. Transformation: dbt models built on top of staged views to generate optimized Dimension and Fact tables
 5. Analytics: A scoped data extract built to feed a functional Tableau dashboard
+
 
 Repository Structure:
 snowflake/
@@ -40,9 +39,11 @@ data_ingestion/
 
 tableau/
 
+
 Analytics and Business Intelligence (BI) Layer:
 The presentation layer consists of a Zomato Global Analytics dashboard powered by data extracts from Dimension and Fact tables. It focuses on Global Culinary trends.
 ![Dashboard Preview](tableau/Zomato_Global_Analytics_Intelligence_Modern_Data_Stack.png)
+
 
 Key Visualizations & Features:
 1. Global Restaurant Map: Interactive geographic map plotting restaurant locality density and distributions globally.
@@ -51,6 +52,7 @@ Key Visualizations & Features:
      Country Name multi-select filter (e.g., India, Australia, Brazil, Canada).
      Cuisine Name multi-select filter.
      Quantitative sliders tracking Average Cost For Two and Average Total Votes.
+
 
 Core Business Metrics Surfaced:
 Average Cost For Two (Pricing tier analysis)
