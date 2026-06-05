@@ -21,6 +21,8 @@ Repository Structure:
 snowflake/
 dbt/
 models/marts/
+src/
+data_ingestion/
 tableau/
 
 Analytics and Business Intelligence (BI) Layer:
