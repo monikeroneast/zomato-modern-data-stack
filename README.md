@@ -1,4 +1,12 @@
-Modern Data Stack Portfolio Project: Zomato End-2-End Pipeline
+# ❄️ Zomato End-to-End Modern Data Stack Pipeline
+
+![dbt Core](https://shields.io)
+![Snowflake](https://shields.io)
+![AWS S3](https://shields.io)
+![Tableau](https://shields.io)
+
+An enterprise-grade analytical data pipeline engineered to ingest semi-structured JSON restaurant source data from AWS S3 into Snowflake, model scalable dimensional marts using dbt Core, and infer dynamic business intelligence insights via Tableau.
+
 
 Project Objective:
 This project reinforces the core Modern Data Stack (MDS) engineering principles. It mimics a real-world production environment by transforming raw, multi-format source data into production-ready business intelligence assets.
@@ -23,15 +31,14 @@ Data Architecture & Pipeline:
 
 Repository Structure:
 snowflake/
-[![Snowflake](https://shields.io)](https://github.com)
+
 dbt/
 models/marts/
-[![dbt Core](https://shields.io)](https://github.com)
+
 src/
 data_ingestion/
-[![AWS S3](https://shields.io)](https://github.com)
+
 tableau/
-[![Tableau](https://shields.io)](https://github.com)
 
 Analytics and Business Intelligence (BI) Layer:
 The presentation layer consists of a Zomato Global Analytics dashboard powered by data extracts from Dimension and Fact tables. It focuses on Global Culinary trends.
