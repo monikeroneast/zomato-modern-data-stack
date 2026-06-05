@@ -46,3 +46,4 @@ Thumbs.db
 *.sublime-workspace
 .env
 .env.*
+dbt_internal_packages/

@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: snowflake_raw
+    database: zomato_db
+    schema: raw
+    tables:
+      - name: vw_flattened_orders
