@@ -1,0 +1,48 @@
+# ==============================================================================
+# Python Virtual Environments & Packages
+# ==============================================================================
+.venv/
+venv/
+ENV/
+bin/
+lib/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+# ==============================================================================
+# dbt (Data Build Tool) Artifacts & Local Cache
+# ==============================================================================
+dbt_modules/
+dbt_packages/
+logs/
+target/
+profiles.yml
+# ==============================================================================
+# Data Engineering Landing Zones & Cache
+# ==============================================================================
+src/data_ingestion/raw_data/
+*.zip
+*.tar.gz
+*.csv
+*.json
+# ==============================================================================
+# Operating System & IDE Hidden Artifacts
+# ==============================================================================
+.DS_Store
+Thumbs.db
+.idea/
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+.env
+.env.*
