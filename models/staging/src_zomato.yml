@@ -6,3 +6,6 @@ sources:
     schema: raw
     tables:
       - name: vw_flattened_orders
+      - name: vw_flattened_restaurants
+      - name: vw_flattened_locations
+      - name: vw_flattened_cuisines
