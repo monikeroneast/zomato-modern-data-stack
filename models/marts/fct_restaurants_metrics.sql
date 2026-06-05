@@ -22,7 +22,7 @@ final as (
         cast(o.average_cost_for_two as float) as average_cost_for_two,
         cast(o.price_range as integer) as price_range,
         cast(o.transaction_currency as string) as transaction_currency,
-        cast(o.customer_rating as float) as customer_rating,
+        cast(o.customer_rating as float) as customer_rating,   -- aggregate_rating: ex. 4.3
         cast(o.total_votes as integer) as total_votes,
         
         -- Metadata
