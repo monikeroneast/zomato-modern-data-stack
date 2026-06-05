@@ -9,6 +9,10 @@ Tech Stack:
 3. Transformation: dbt (Data Build Tool)
 4. BI Visualization: Tableau (Link: Coming Soon)
 
+
+
+
+
 Data Architecture & Pipeline:
 1. Ingestion: Semi-structured JSON datasets uploaded to AWS S3
    Link: Zomato Kaggle data (https://www.kaggle.com/datasets/shrutimehta/zomato-restaurants-data)
@@ -19,11 +23,15 @@ Data Architecture & Pipeline:
 
 Repository Structure:
 snowflake/
+[![Snowflake](https://shields.io)](https://github.com)
 dbt/
 models/marts/
+[![dbt Core](https://shields.io)](https://github.com)
 src/
 data_ingestion/
+[![AWS S3](https://shields.io)](https://github.com)
 tableau/
+[![Tableau](https://shields.io)](https://github.com)
 
 Analytics and Business Intelligence (BI) Layer:
 The presentation layer consists of a Zomato Global Analytics dashboard powered by data extracts from Dimension and Fact tables. It focuses on Global Culinary trends.
