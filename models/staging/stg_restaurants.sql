@@ -1,5 +1,5 @@
 with raw_source as (
-    select * from {{ source('snowflake_raw', 'vw_flattened_restaurants') }}
+    select *, 'Airflow was here' AS orchestration_check from {{ source('snowflake_raw', 'vw_flattened_restaurants') }}
 )
 
 select
@@ -17,5 +17,6 @@ select
     restaurant_metadata_json:location:zipcode::string as zipcode,
     price_range,
     transaction_currency,
-    ingested_at as row_ingested_at
+    ingested_at as row_ingested_at,
+    orchestration_check
 from raw_source

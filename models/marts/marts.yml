@@ -1,7 +1,11 @@
 version: 2
 
 models:
+<<<<<<< HEAD
+  - name: fct_restaurants_metrics
+=======
   - name: fct_restaurant_metrics
+>>>>>>> origin/main
     description: "The primary fact table storing restaurant performance and financial snapshot metrics."
     columns:
       - name: restaurant_id

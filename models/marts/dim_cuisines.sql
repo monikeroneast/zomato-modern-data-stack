@@ -9,7 +9,12 @@ final as (
         restaurant_id,
         restaurant_name,
         cuisine_name,
+<<<<<<< HEAD
+        row_ingested_at,
+       
+=======
         row_ingested_at
+>>>>>>> origin/main
     from cuisines
 )
 

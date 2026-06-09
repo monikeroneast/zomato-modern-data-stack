@@ -1,5 +1,5 @@
 with raw_source as (
-    select * from {{ source('snowflake_raw', 'vw_flattened_locations') }}
+    select *, 'Airflow was here' AS orchestration_check from {{ source('snowflake_raw', 'vw_flattened_locations') }}
 )
 
 select
@@ -13,5 +13,6 @@ select
     restaurant_metadata_json:location:longitude::float as longitude,
     restaurant_metadata_json:location:zipcode::string as zipcode,
     restaurant_metadata_json:location:locality_verbose::string as locality_description,
-    ingested_at as row_ingested_at
+    ingested_at as row_ingested_at,
+    orchestration_check
 from raw_source

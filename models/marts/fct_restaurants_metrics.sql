@@ -27,6 +27,11 @@ final as (
         
         -- Metadata
         o.row_ingested_at as row_ingested_at
+<<<<<<< HEAD
+      
+
+=======
+>>>>>>> origin/main
     from orders_source o
     left join countries c 
         on o.country_id = c.country_code

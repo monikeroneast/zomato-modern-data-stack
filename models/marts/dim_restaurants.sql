@@ -12,7 +12,12 @@ final as (
         has_table_booking,
         price_range,
         transaction_currency,
+<<<<<<< HEAD
+        row_ingested_at,
+      
+=======
         row_ingested_at
+>>>>>>> origin/main
     from restaurants
 )
 
