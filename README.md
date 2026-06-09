@@ -19,10 +19,10 @@ Tech Stack:
 
 
 Data Architecture & Pipeline:
+
 1. Ingestion: Semi-structured JSON datasets uploaded to AWS S3
    Link: Zomato Kaggle data (https://www.kaggle.com/datasets/shrutimehta/zomato-restaurants-data)
 2. Staging: Copied data into raw Snowflake ingestion tables
-<<<<<<< HEAD
 
     ## ❄️ Storage Integration & Data Ingestion (Snowflake)
 
@@ -60,7 +60,9 @@ Data Architecture & Pipeline:
 
     ![Snowflake JSON Lateral Flattening Validation](assets/zomato_db-snowflake-flattened_view.png)
 
+
 3. Modeling: Structural formatting applied via Snowflake staging views
+4. Transformation: dbt models built on top of staged views to generate optimized Dimension and Fact tables
 
    
     ## ⚙️ Pipeline Orchestration (Apache Airflow)
@@ -75,28 +77,28 @@ Data Architecture & Pipeline:
     2. **`run_dbt_models`**: Fired a `BashOperator` to execute downstream dbt transformation models, building optimized production-ready Fact and Dimension tables for analysis.
 
 
-=======
-3. Modeling: Structural formatting applied via Snowflake staging views
->>>>>>> origin/main
-4. Transformation: dbt models built on top of staged views to generate optimized Dimension and Fact tables
 5. Analytics: A scoped data extract built to feed a functional Tableau dashboard
 
 
-Repository Structure:
-snowflake/
+## 📂 Repository Layout
 
-dbt/
-models/marts/
-
-src/
-data_ingestion/
-
-tableau/
+```text
+zomato-modern-data-stack/
+├── assets/                       # Sanitized execution & pipeline screenshots
+├── dags/                         # Apache Airflow orchestration scripts
+├── dashboards/                   # Tableau workbook packages (.twbx) and extracts
+├── models/                       # dbt analytical transformation layer
+│   ├── staging/                  # Raw layer cleansing & views
+│   └── marts/                    # Dimension and Fact core metric tables
+├── snowflake/                    # Production cloud warehouse DDL setup scripts
+├── snapshots/                    # dbt slowly changing dimensions (SCD Type 2)
+└── tests/                        # Custom data quality assurance checks
+```
 
 
 Analytics and Business Intelligence (BI) Layer:
 The presentation layer consists of a Zomato Global Analytics dashboard powered by data extracts from Dimension and Fact tables. It focuses on Global Culinary trends.
-![Dashboard Preview](tableau/Zomato_Global_Analytics_Intelligence_Modern_Data_Stack.png)
+![Dashboard Preview](dashboards/Zomato_Global_Analytics_Intelligence_Modern_Data_Stack.png)
 
 
 Key Visualizations & Features:
