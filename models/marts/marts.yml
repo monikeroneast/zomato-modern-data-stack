@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: fct_restaurants_metrics
+    description: "The primary fact table storing restaurant performance and financial snapshot metrics."
+    columns:
+      - name: restaurant_id
+        description: "The primary key of the fact table."
+        tests:
+          - unique   # Assert that no restaurant ID appears more than once
+          - not_null # Assert that every record must have a valid ID
+
+      - name: country_code
+        description: "The foreign key linking to the country reference seed."
+        tests:
+          - not_null
+
+      - name: aggregate_rating
+        description: "The score rating given by users."
+        tests:
+          - not_null
