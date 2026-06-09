@@ -18,7 +18,11 @@ final as (
         loc.latitude,
         loc.longitude,
         coalesce(c.country, 'Unknown Country') as country_name,
+<<<<<<< HEAD
         loc.row_ingested_at       -- Matches line 16 of your staging file
+=======
+        loc.row_ingested_at        -- Matches line 16 of your staging file
+>>>>>>> origin/main
     from locations loc
     left join countries c 
         on loc.country_id = c.country_code

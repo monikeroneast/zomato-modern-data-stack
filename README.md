@@ -22,6 +22,7 @@ Data Architecture & Pipeline:
 1. Ingestion: Semi-structured JSON datasets uploaded to AWS S3
    Link: Zomato Kaggle data (https://www.kaggle.com/datasets/shrutimehta/zomato-restaurants-data)
 2. Staging: Copied data into raw Snowflake ingestion tables
+<<<<<<< HEAD
 
     ## ❄️ Storage Integration & Data Ingestion (Snowflake)
 
@@ -74,6 +75,9 @@ Data Architecture & Pipeline:
     2. **`run_dbt_models`**: Fired a `BashOperator` to execute downstream dbt transformation models, building optimized production-ready Fact and Dimension tables for analysis.
 
 
+=======
+3. Modeling: Structural formatting applied via Snowflake staging views
+>>>>>>> origin/main
 4. Transformation: dbt models built on top of staged views to generate optimized Dimension and Fact tables
 5. Analytics: A scoped data extract built to feed a functional Tableau dashboard
 
