@@ -34,7 +34,7 @@ Data Architecture & Pipeline:
     LIST @zomato_db.raw.s3_stage;
     ```
 
-    ![Snowflake Stage S3 File Inventory](assets/snowflake_stage_verification.png)
+    ![Snowflake Stage S3 File Inventory](assets/zomato_db-raw-s3_stage.png)
 
     ### Semi-Structured Data Ingestion (`VARIANT`)
     Raw payloads landing from the S3 data lake are loaded directly into target staging tables using Snowflake's native `VARIANT` data type. This isolates ingestion from schema drift and preserves the full JSON structure for downstream transformations:
@@ -43,7 +43,7 @@ Data Architecture & Pipeline:
     SELECT * FROM staging_orders LIMIT 17;
     ```
 
-    ![Snowflake Raw Variant Ingestion Preview](assets/snowflake_staging_view.png)
+    ![Snowflake Raw Variant Ingestion Preview](assets/zomato_db-snowflake-staging_view.png)
 
     ### Semi-Structured Data Parsing (`LATERAL FLATTEN`)
     To prepare the nested data layers for analytical modeling, a relational view is built by leveraging Snowflake’s native JSON path dot-notation and relational flattening mechanisms to unnest the restaurant payload arrays into strongly typed fields:
@@ -57,7 +57,7 @@ Data Architecture & Pipeline:
     LATERAL FLATTEN(input => raw_json:restaurants) f;
     ```
 
-    ![Snowflake JSON Lateral Flattening Validation](assets/snowflake_flattened_view.png)
+    ![Snowflake JSON Lateral Flattening Validation](assets/zomato_db-snowflake-flattened_view.png)
 
 3. Modeling: Structural formatting applied via Snowflake staging views
 
