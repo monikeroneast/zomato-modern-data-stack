@@ -76,10 +76,6 @@ Data Architecture & Pipeline:
     1. **`copy_s3_to_snowflake`**: Extracted semi-structured raw JSON restaurant datasets from AWS S3 and loaded them directly into Snowflake ingestion tables using the `SQLExecuteQueryOperator`.
     2. **`run_dbt_models`**: Fired a `BashOperator` to execute downstream dbt transformation models, building optimized production-ready Fact and Dimension tables for analysis.
 
-
-5. Analytics: A scoped data extract built to feed a functional Tableau dashboard
-
-
 ## 📂 Repository Layout
 
 ```text
@@ -95,7 +91,8 @@ zomato-modern-data-stack/
 └── tests/                        # Custom data quality assurance checks
 ```
 
-
+5. Analytics: A scoped data extract built to feed a functional Tableau dashboard
+   
 Analytics and Business Intelligence (BI) Layer:
 The presentation layer consists of a Zomato Global Analytics dashboard powered by data extracts from Dimension and Fact tables. It focuses on Global Culinary trends.
 ![Dashboard Preview](dashboards/Zomato_Global_Analytics_Intelligence_Modern_Data_Stack.png)
