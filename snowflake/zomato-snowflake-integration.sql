@@ -3,8 +3,8 @@ CREATE OR REPLACE STORAGE INTEGRATION zomato_s3_integration
   TYPE = EXTERNAL_STAGE
   STORAGE_PROVIDER = 'S3'
   ENABLED = TRUE
-  STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::513616570516:role/zomato_snowflake_role'
-  STORAGE_ALLOWED_LOCATIONS = ('s3://amaz-s3-zomato-raw-data-landing/raw_landing/zomato_historical/');
+  STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::YOUR_AWS_ACCOUNT_ID:role/zomato_snowflake_role'
+  STORAGE_ALLOWED_LOCATIONS = ('s3://your-portfolio-zomato-bucket/raw_landing/zomato_historical/');
 
 
 DESCRIBE STORAGE INTEGRATION zomato_s3_integration;
@@ -23,7 +23,7 @@ CREATE OR REPLACE FILE FORMAT zomato_db.raw.json_format
 -- Creating the Staging tables
 CREATE OR REPLACE STAGE zomato_db.raw.s3_stage
   STORAGE_INTEGRATION = zomato_s3_integration
-  URL = 's3://amaz-s3-zomato-raw-data-landing/raw_landing/zomato_historical/'
+  URL = 's3://your-portfolio-zomato-bucket/raw_landing/zomato_historical/'
   FILE_FORMAT = zomato_db.raw.json_format;
 
 -- Verifying storage integration

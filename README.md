@@ -76,6 +76,12 @@ Data Architecture & Pipeline:
     1. **`copy_s3_to_snowflake`**: Extracted semi-structured raw JSON restaurant datasets from AWS S3 and loaded them directly into Snowflake ingestion tables using the `SQLExecuteQueryOperator`.
     2. **`run_dbt_models`**: Fired a `BashOperator` to execute downstream dbt transformation models, building optimized production-ready Fact and Dimension tables for analysis.
 
+    ### Analytical Data Lineage Model
+    The data transformation pipelines are modularly partitioned across distinct models within dbt Core. The architecture establishes a clear, decoupled lineage graph tracking multi-source data dependencies from raw ingestion layers up to finalized analytical dimension and fact presentation tables:
+
+    ![dbt Transformation Data Lineage Graph](assets/zomato_dbt_lineage-graph.png)
+
+
 ## 📂 Repository Layout
 
 ```text
