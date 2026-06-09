@@ -1,5 +1,5 @@
 with raw_source as (
-    select * from {{ source('snowflake_raw', 'vw_flattened_orders') }}
+    select *, 'Airflow was here' AS orchestration_check from {{ source('snowflake_raw', 'vw_flattened_orders') }}
 )
 
 select
@@ -12,5 +12,8 @@ select
     restaurant_metadata_json:currency::string as transaction_currency,
     restaurant_metadata_json:user_rating:aggregate_rating::float as customer_rating,
     restaurant_metadata_json:user_rating:rating_text::string as customer_rating_review,
-    ingested_at as row_ingested_at
+    restaurant_metadata_json:user_rating:votes::int as total_votes,
+    price_range,
+    ingested_at as row_ingested_at,
+    orchestration_check
 from raw_source
