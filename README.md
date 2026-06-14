@@ -15,7 +15,7 @@ Tech Stack:
 1. Storage: AWS S3
 2. Data Warehouse: Snowflake
 3. Transformation: dbt (Data Build Tool)
-4. BI Visualization: Tableau (Link: Coming Soon)
+4. BI Visualization: Tableau
 
 
 Data Architecture & Pipeline:
