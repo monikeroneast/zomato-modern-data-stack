@@ -1,0 +1,218 @@
+version: 2
+
+models:
+
+  - name: stg_cuisines
+    description: ""
+    columns:
+      - name: restaurant_id
+        data_type: number
+        description: ""
+
+      - name: restaurant_name
+        data_type: varchar
+        description: ""
+
+      - name: city
+        data_type: varchar
+        description: ""
+
+      - name: country_id
+        data_type: number
+        description: ""
+
+      - name: cuisine_name
+        data_type: varchar
+        description: ""
+
+      - name: restaurant_metadata_json
+        data_type: variant
+        description: ""
+
+      - name: row_ingested_at
+        data_type: timestamp_ltz
+        description: ""
+
+      - name: orchestration_check
+        data_type: varchar
+        description: ""
+
+
+  - name: stg_locations
+    description: ""
+    columns:
+      - name: restaurant_id
+        data_type: number
+        description: ""
+        tests:
+          - not_null
+
+      - name: restaurant_name
+        data_type: varchar
+        description: ""
+
+      - name: city
+        data_type: varchar
+        description: ""
+
+      - name: country_id
+        data_type: number
+        description: ""
+
+      - name: restaurant_address
+        data_type: varchar
+        description: ""
+
+      - name: restaurant_locality
+        data_type: varchar
+        description: ""
+
+      - name: latitude
+        data_type: float
+        description: ""
+
+      - name: longitude
+        data_type: float
+        description: ""
+
+      - name: zipcode
+        data_type: varchar
+        description: ""
+
+      - name: locality_description
+        data_type: varchar
+        description: ""
+
+      - name: row_ingested_at
+        data_type: timestamp_ltz
+        description: ""
+
+      - name: orchestration_check
+        data_type: varchar
+        description: ""
+
+
+  - name: stg_orders
+    description: ""
+    columns:
+      - name: restaurant_id
+        data_type: number
+        description: ""
+        tests:
+          - not_null
+
+      - name: restaurant_name
+        data_type: varchar
+        description: ""
+
+      - name: city
+        data_type: varchar
+        description: ""
+
+      - name: country_id
+        data_type: number
+        description: ""
+
+      - name: restaurant_address
+        data_type: varchar
+        description: ""
+
+      - name: average_cost_for_two
+        data_type: number
+        description: ""
+
+      - name: transaction_currency
+        data_type: varchar
+        description: ""
+
+      - name: customer_rating
+        data_type: float
+        description: ""
+
+      - name: customer_rating_review
+        data_type: varchar
+        description: ""
+
+      - name: total_votes
+        data_type: number
+        description: ""
+
+      - name: price_range
+        data_type: float
+        description: ""
+
+      - name: row_ingested_at
+        data_type: timestamp_ltz
+        description: ""
+
+      - name: orchestration_check
+        data_type: varchar
+        description: ""
+
+
+  - name: stg_restaurants
+    description: ""
+    columns:
+      - name: restaurant_id
+        data_type: number
+        description: ""
+
+      - name: restaurant_name
+        data_type: varchar
+        description: ""
+
+      - name: has_online_delivery
+        data_type: number
+        description: ""
+
+      - name: is_delivering_now
+        data_type: number
+        description: ""
+
+      - name: has_table_booking
+        data_type: number
+        description: ""
+
+      - name: city
+        data_type: varchar
+        description: ""
+
+      - name: country_id
+        data_type: number
+        description: ""
+
+      - name: restaurant_address
+        data_type: varchar
+        description: ""
+
+      - name: restaurant_locality
+        data_type: varchar
+        description: ""
+
+      - name: latitude
+        data_type: float
+        description: ""
+
+      - name: longitude
+        data_type: float
+        description: ""
+
+      - name: zipcode
+        data_type: varchar
+        description: ""
+
+      - name: price_range
+        data_type: float
+        description: ""
+
+      - name: transaction_currency
+        data_type: varchar
+        description: ""
+
+      - name: row_ingested_at
+        data_type: timestamp_ltz
+        description: ""
+
+      - name: orchestration_check
+        data_type: varchar
+        description: ""
