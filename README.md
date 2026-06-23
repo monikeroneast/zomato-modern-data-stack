@@ -67,7 +67,12 @@ Data Architecture & Pipeline:
    
     ## ⚙️ Pipeline Orchestration (Apache Airflow)
 
-    The end-to-end data pipeline is fully automated and orchestrated using **Apache Airflow** running locally inside Docker containers via the **Astro CLI** on a WSL2 Ubuntu distribution.
+    The end-to-end data pipeline is fully automated and orchestrated using **Apache Airflow** running locally inside 
+    a managed local Python virtual environment (`venv`) on a WSL2 Ubuntu distribution to optimize system resource allocation and process lifecycle stability.
+
+### Pipeline Execution Graph
+...
+
 
     ### Pipeline Execution Graph
     ![Zomato Airflow DAG Pipeline Graph](assets/zomato_snowflake_pipeline-graph.png)
