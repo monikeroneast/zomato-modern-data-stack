@@ -10,19 +10,16 @@ final as (
     select
         loc.restaurant_id,
         loc.restaurant_name,
-        loc.restaurant_locality,    -- Matches line 11 of your staging file
-        loc.locality_description,  -- Matches line 15 of your staging file
+        loc.restaurant_locality,    
+        loc.locality_description,  
         loc.city,
-        loc.restaurant_address,     -- Matches line 10 of your staging file
+        loc.restaurant_address,  
         loc.zipcode,
         loc.latitude,
         loc.longitude,
         coalesce(c.country, 'Unknown Country') as country_name,
-<<<<<<< HEAD
-        loc.row_ingested_at       -- Matches line 16 of your staging file
-=======
-        loc.row_ingested_at        -- Matches line 16 of your staging file
->>>>>>> origin/main
+        loc.row_ingested_at    
+
     from locations loc
     left join countries c 
         on loc.country_id = c.country_code

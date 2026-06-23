@@ -27,16 +27,27 @@ with DAG(
 
     run_dbt = BashOperator(
     task_id="run_dbt_models",
-    bash_command="cd /usr/local/airflow/dags/zomato-modern-data-stack/dbt_project && dbt seed --profiles-dir .. && dbt run --profiles-dir ..",
-    # Use str() casting or empty string fallbacks so Python never throws a NoneType exception
-        env={
-            "DBT_SNOWFLAKE_ACCOUNT": str(os.getenv("AIRFLOW__CONN__DBT_SNOWFLAKE_ACCOUNT") or ""),
-            "DBT_SNOWFLAKE_USER": str(os.getenv("AIRFLOW__CONN__DBT_SNOWFLAKE_USER") or ""),
-            "DBT_SNOWFLAKE_PASSWORD": str(os.getenv("AIRFLOW__CONN__DBT_SNOWFLAKE_PASSWORD") or ""),
-            "DBT_SNOWFLAKE_ROLE": str(os.getenv("AIRFLOW__CONN__DBT_SNOWFLAKE_ROLE") or "ACCOUNTADMIN"),
-            "DBT_SNOWFLAKE_WH": str(os.getenv("AIRFLOW__CONN__DBT_SNOWFLAKE_WH") or "COMPUTE_WH"),
-        },
-    )
+    bash_command="""
+    cd /home/monikroneast/zomato-modern-data-stack && dbt run,
+    dag=dag, 
+    """,
+    env={
+        "DBT_PROFILES_DIR": "/home/monikroneast/.dbt",  # Forces dbt to use your local profiles.yml file
+        "DBT_SNOWFLAKE_ACCOUNT": str(os.getenv("AIRFLOW_CONN_DBT_SNOWFLAKE_ACCOUNT") or ""),
+        "DBT_SNOWFLAKE_USER": str(os.getenv("AIRFLOW_CONN_DBT_SNOWFLAKE_USER") or ""),
+        "DBT_SNOWFLAKE_PASSWORD": str(os.getenv("AIRFLOW_CONN_DBT_SNOWFLAKE_PASSWORD") or ""),
+        "DBT_SNOWFLAKE_ROLE": str(os.getenv("AIRFLOW_CONN_DBT_SNOWFLAKE_ROLE") or "ACCOUNTADMIN"),
+        "DBT_SNOWFLAKE_WH": str(os.getenv("AIRFLOW_CONN_DBT_SNOWFLAKE_WH") or "COMPUTE_WH"),
+    },
+)
 
+copy_s3_data_to_tables >> run_dbt
 
-    copy_s3_data_to_tables >> run_dbt
+dag.doc_md = """
+### Zomato Snowflake Data Pipeline Documentation
+This DAG handles the end-to-end ELT pipeline for Zomato metrics.
+
+#### Pipeline Steps:
+1. **`copy_s3_data_to_tables`**: Ingests raw CSV/JSON logs stored in AWS S3 buckets straight into Snowflake target staging tables.
+2. **`run_dbt_models`**: Triggers dbt models with a `--full-refresh` flag to handle data transformation and business logic processing.
+"""
