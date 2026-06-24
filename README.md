@@ -22,6 +22,14 @@ Data Architecture & Pipeline:
 
 1. Ingestion: Semi-structured JSON datasets uploaded to AWS S3
    Link: Zomato Kaggle data (https://www.kaggle.com/datasets/shrutimehta/zomato-restaurants-data)
+
+Event-Driven Ingestion Layer
+
+Building upon foundational data engineering patterns and leveraging concepts from the Snowflake Badge 5 (Data Engineering) certification, the ingestion workflow was refactored from a manual setup into a production-grade, event-driven pipeline:
+
+* **Event-Driven Ingestion:** Integrated an Apache Airflow `S3KeySensor` utilizing wildcard evaluation patterns to dynamically intercept and catch incoming raw payloads (`file*.json`).
+* **Idempotent Ingestion Design:** Optimized the Snowflake ingestion grain with automated execution controls, maintaining a clean, self-cleaning, zero-state S3 landing zone environment.
+
 2. Staging: Copied data into raw Snowflake ingestion tables
 
     ## ❄️ Storage Integration & Data Ingestion (Snowflake)
